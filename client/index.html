@@ -6,6 +6,18 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="fortuneButton">Get a Fortune</button>
+    <br><br>
+    <h3>Write down Some Fortunes for others</h3>
+    <input type="text" id="inputFort" placeholder="Type a quote">
+    <button id="postFort">Post</button>
+    <br>
+    <input type="text" id="edit">
+    <button id='help'>Edit Quote</button>
+      <div id="yes">
+        <ul id="no">
+          
+        </ul>
+      </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -26,5 +38,18 @@
         })
       })
     </script>
+    <script>
+      document.getElementById('postFort').addEventListener('click', () => {
+        let text = document.getElementById('inputFort').value
+        axios.post("http://localhost:4000/api/quotes/", text)
+      })
+    </script>
+    <script>
+      document.getElementById('edit').addEventListener('click', () => {
+        axios.put('http://localhost:4000/api/quotes/')
+      })
+    </script>
+
+  
   </body>
 </html>

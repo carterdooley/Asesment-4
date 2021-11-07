@@ -31,11 +31,18 @@ app.get("/api/fortune", (req, res) => {
 
 
 
-  let randoIndex = Math.floor(Math.random() * fortunes.length)
-  let randoFort = fortunes[randoIndex]
+  // let randoIndex = Math.floor(Math.random() * fortunes.length)
+  // let randoFort = fortunes[randoIndex]
 
-  res.status(200).send(randoFort)
+  res.status(200).send(fortunes)
 })
+
+app.post("/api/quotes", (req, res) => {
+  arr = []
+  arr.push(res)
+  res.status(200).send(req)
+})
+  
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
