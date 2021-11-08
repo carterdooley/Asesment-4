@@ -23,7 +23,7 @@ app.get("/api/compliment", (req, res) => {
 });
 
 app.get("/api/fortune", (req, res) => {
-  const fortunes = ["You will win the lottery",
+  let fortunes = ["You will win the lottery",
           "Great food will fall from the sky",
         "Your house will disapear next time you leave",
         "A good time to finish up old tasks", 
@@ -31,17 +31,25 @@ app.get("/api/fortune", (req, res) => {
 
 
 
-  // let randoIndex = Math.floor(Math.random() * fortunes.length)
-  // let randoFort = fortunes[randoIndex]
+  let randoIndex = Math.floor(Math.random() * fortunes.length)
+  let randoFort = fortunes[randoIndex]
 
   res.status(200).send(fortunes)
 })
 
-app.post("/api/quotes", (req, res) => {
-  arr = []
-  arr.push(res)
-  res.status(200).send(req)
-})
+
+
+ pushIt = (res, req) => {
+  body = res.data
+  res.status(200).send(body)
+}
+
+
+
+
+app.post("/api/fortune", pushIt)
+
+app.put("/api/fortune")
   
 
 
