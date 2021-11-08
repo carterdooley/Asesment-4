@@ -44,12 +44,23 @@ app.get("/api/fortune", (req, res) => {
   res.status(200).send(body)
 }
 
+updateIt = (res, req) => {
+  body = res.data
+  res.status(200).send(body)
+}
 
+deleteIt = (res, req) => {
+  body = res.data
+  delete(body)
+  res.status(200)
+}
 
 
 app.post("/api/fortune", pushIt)
 
-app.put("/api/fortune")
+app.put("/api/fortune", updateIt)
+
+app.delete("/api/fortune", deleteIt)
   
 
 
